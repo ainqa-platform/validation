@@ -43,29 +43,3 @@ export const Validation = {
     errordisplayType: "Phone number must have 10 digits",
   },
 };
-
-var longestPalindrome = function (s) {
-  let array = [];
-  for (let i = 0; i < s.length; i++) {
-    let sub = s.substring(i + 1).indexOf(s[i]);
-    if (
-      sub !== -1 &&
-      s
-        .substring(s.indexOf(s[i]), sub + i + 2)
-        .split("")
-        .reverse()
-        .join("") === s.substring(s.indexOf(s[i]), sub + i + 2)
-    ) {
-      if (
-        array?.[0]?.length > s.substring(s.indexOf(s[i]), sub + i + 2).length
-      ) {
-        array.pop();
-        array.push(s.substring(s.indexOf(s[i]), sub + i + 2));
-      } else {
-        array.push(s.substring(s.indexOf(s[i]), sub + i + 2));
-      }
-    }
-  }
-  return array[0];
-};
-console.log(longestPalindrome("babad"));
